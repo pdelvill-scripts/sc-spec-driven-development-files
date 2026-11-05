@@ -1,0 +1,6 @@
+interface:
+  display_name: "Changelog"
+  short_description: "Update dated changelog entries before merging"
+  default_prompt: "Use $changelog to update CHANGELOG.md from Git history and current work before merging."
+policy:
+  allow_implicit_invocation: false

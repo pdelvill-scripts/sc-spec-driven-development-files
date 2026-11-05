@@ -38,3 +38,10 @@
 19. Add `src/app.test.ts` using the Node environment and `app.request()`; cover the home-page status/content type, heading and tagline, one header/main/footer, working stylesheet link, and missing page/asset responses
 20. Run `npm test`, `npm run typecheck`, and `npm run build`; all must exit 0 and tests must actually be discovered
 21. Keep `npm run dev` as the manual server-start check; automated request tests validate application behavior without starting a server
+
+## Group 7 — Responsive UI
+
+22. Apply mobile-first shared CSS: fluid gutters and heading sizes, a bounded full-width main region, content wrapping, constrained media and controls, and a footer that follows content
+23. Preserve scalable viewport metadata, give the home link a minimum 44px target height, and add visible keyboard focus styles
+24. Keep Vitest coverage for the shared layout and viewport metadata; do not treat server-rendered assertions as evidence of visual reflow
+25. Check the home page at 320, 375, 768, and 1280 CSS-pixel widths and at 200% browser zoom in a 1280px window. Try long content and keyboard navigation; record results in validation.md and leave unperformed checks pending

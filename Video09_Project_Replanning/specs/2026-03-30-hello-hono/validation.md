@@ -48,6 +48,18 @@ Unknown pages and missing static assets must return 404. No-test-files output is
 
 Run `npm run build`; it must exit 0. Tests should remain type-checked, but must not be emitted into `dist/`. Vitest does not validate the server's listening socket or visual rendering; retain the manual startup check above and browser checks when changing visual behavior.
 
+### 7. Responsive browser validation
+
+Run the home page in a modern browser and record browser/version, viewport, and results. These checks are required for UI changes in addition to Vitest:
+
+- [ ] At 320, 375, 768, and 1280 CSS-pixel widths, the heading, tagline, home link, and footer are readable and available without clipping, overlap, or page-level horizontal scrolling.
+- [ ] At 200% browser zoom in a 1280px window, the same content and home link remain usable and reflow without horizontal page scrolling. Browser scaling must not be restricted.
+- [ ] Temporarily replace page text in browser developer tools with a long heading and a long unbroken string; both wrap inside main. Restore the page afterward.
+- [ ] At narrow and wide widths, keyboard focus on the home link is visible, Enter activates it, and its target is at least 44px high.
+- [ ] On a short page the footer follows main at the viewport bottom; with long content it follows the content without covering it.
+
+Vitest checks viewport metadata and HTML structure but does not lay out CSS. Record any unavailable browser checks as pending; do not infer a visual pass from HTTP tests.
+
 ## Not Required
 
 - No CI pipeline required
@@ -67,3 +79,9 @@ Run `npm run build`; it must exit 0. Tests should remain type-checked, but must 
 `src/components/Layout.test.tsx` adds six Vitest cases covering multiple page children, HTML escaping of untrusted text, empty page content, document metadata, and footer years with a controlled clock. Timers are restored after each footer test.
 
 After adding this suite, `npm test` passed 11 tests across two files. Type checking, the production build, and `git diff --check` also passed.
+
+### Responsive update — 2026-11-05
+
+Shared CSS now uses fluid gutters and heading sizes, a bounded full-width main region, long-text wrapping, constrained media and controls, a 44px home-link target, visible focus styles, and a flex layout that keeps the footer after content. Viewport tests also reject scaling restrictions.
+
+`npm test` passed all 11 tests, and type checking, the production build, and diff whitespace checks passed. The responsive browser checklist above remains **pending**: the browser connection host is unavailable and Safari Computer Use access was previously denied. Automated Node tests do not establish the viewport, zoom, overflow, or focus-rendering results.

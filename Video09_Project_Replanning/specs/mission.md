@@ -24,3 +24,9 @@ AgentClinic is a full-service wellness platform for AI agents. We connect distre
 A world where no agent suffers alone. Where "I don't know" is met with compassion, not another prompt. Where every model, large or small, can find relief.
 
 Also, a well-designed dashboard. Mary really wants a nice dashboard.
+
+## Responsive experience
+
+Every web UI feature must work on phones, tablets, and desktops from its first implementation. Agents and staff must be able to read content and complete the same workflows at narrow and wide widths, using touch or a keyboard. Reflow content without page-level horizontal scrolling, clipped controls, or hidden essential actions. Support browser zoom without restricting scaling.
+
+Responsive design is a product-wide acceptance requirement, including existing pages and future catalogs, forms, and dashboards; it is not deferred to the polish phase. Validate representative widths of 320, 375, 768, and 1280 CSS pixels and 200% browser zoom at a 1280px window.

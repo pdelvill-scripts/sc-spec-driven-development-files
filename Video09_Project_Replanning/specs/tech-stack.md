@@ -12,6 +12,15 @@ AgentClinic is a server-side TypeScript application. All rendering happens on th
 | Templating | Hono JSX (server-side) | JSX without React overhead; components are just functions |
 | CSS | Plain CSS + CSS custom properties | No build step required; Steve gets a modern, attractive result |
 
+## Responsive UI
+
+- Apply responsive design to every existing and new web feature. Use mobile-first CSS, fluid spacing and typography, flexible widths, and bounded content areas; introduce media queries when content needs a layout change.
+- Keep `width=device-width, initial-scale=1.0` viewport metadata in the shared layout. Do not disable zoom or hide overflow to mask layout defects.
+- Reflow from 320px upward without page-level horizontal scrolling. Wrap long labels and URLs, constrain media and controls to their containers, and retain all essential content and actions. Future dense tables may use a clearly identified scroll region instead of overflowing the page.
+- Keep interactive targets at least 44px high and keyboard focus visible. Future multi-column views must stack when space is insufficient.
+- Validate at 320, 375, 768, and 1280 CSS-pixel widths, plus 200% browser zoom at a 1280px window. Check touch-sized controls, keyboard access, long content, clipping, and horizontal overflow.
+- Vitest validates server-rendered structure, viewport metadata, and asset delivery. Actual reflow and visual usability require browser checks; passing Node tests alone does not establish responsive correctness.
+
 ## Recommended: Hono
 
 [Hono](https://hono.dev) is chosen over Express/Fastify because:

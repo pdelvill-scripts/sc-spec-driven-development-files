@@ -41,6 +41,7 @@ describe("shared layout rendering", () => {
     const head = markup.match(/<head>([\s\S]*?)<\/head>/)?.[1];
     expect(head).toContain('<meta charset="UTF-8"');
     expect(head).toContain('name="viewport" content="width=device-width, initial-scale=1.0"');
+    expect(head).not.toMatch(/user-scalable\s*=\s*(?:no|0)|maximum-scale\s*=/i);
   });
 });
 

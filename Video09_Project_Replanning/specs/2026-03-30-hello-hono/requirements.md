@@ -4,6 +4,15 @@
 
 Install and configure Hono with a `tsx` dev server. Expose a single `/` page route that renders a minimal HTML home page via Hono JSX. Use the existing shared Layout with separate Header, Main, and Footer components, and link the served `/static/style.css`. Confirm TypeScript types work end-to-end and validate the existing behavior with Vitest tests.
 
+## Responsive home page and shared layout
+
+- Support 320, 375, 768, and 1280 CSS-pixel widths with the same heading, tagline, home link, and footer available in every layout.
+- Use fluid gutters and a full-width main region capped at a readable desktop width. Allow long headings, labels, and unbroken text to wrap without page-level horizontal scrolling or clipping.
+- Keep the footer after the content; on short pages it should sit at the bottom of the viewport without covering content.
+- Keep viewport metadata that allows browser scaling. At 200% zoom in a 1280px window, content and the home link must remain usable without overlap or page-level horizontal scrolling.
+- Give the home link a minimum 44px target height and a visible keyboard focus indicator. Do not hide essential content or actions to fit narrow screens.
+- Constrain media and form controls to their containers as a baseline for future pages. Browser checks establish reflow and usability; Vitest verifies the shared metadata and document structure.
+
 ## Out of Scope
 
 - No additional layout features or navigation beyond the existing home link
