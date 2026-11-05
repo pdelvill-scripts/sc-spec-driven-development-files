@@ -2,6 +2,7 @@
 
 ## 2026-11-05
 
+- Add responsive layout guidance and styles, and a manually invoked changelog skill. <!-- commit:58f100a8b6b9e7015c58bf38aff04578fd285bb0 -->
 - Add Vitest setup and tests. <!-- commit:9d4616273886b9b63afe8810e5f3181700bac36a -->
 - Complete AgentClinic base layout and stylesheet integration. <!-- commit:0edd4f3a0480e3549349a3e203cf3e9337194d88 -->
 - Phase 1 feature implementation. <!-- commit:c89a4bc363d2edcdd1a7a68e51e7b2b3340d5049 -->
