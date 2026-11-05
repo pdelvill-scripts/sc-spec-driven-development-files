@@ -1,7 +1,7 @@
-import type {FC, PropsWithChildren} from "hono/jsx";
-import {Header} from "./Header";
-import {Footer} from "./Footer";
-import {Main} from "./Main";
+import type { FC, PropsWithChildren } from "hono/jsx";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
+import { Main } from "./Main";
 
 export const Layout: FC<PropsWithChildren> = ({ children }) => (
   <html lang="en">

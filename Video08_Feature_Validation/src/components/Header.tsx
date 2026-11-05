@@ -1,7 +1,9 @@
-import {FC} from "hono/jsx";
+import type { FC } from "hono/jsx";
 
 export const Header: FC = () => (
-    <header>
-        <a href="/">AgentClinic</a>
-    </header>
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="/">AgentClinic</a>
+    </nav>
+  </header>
 );

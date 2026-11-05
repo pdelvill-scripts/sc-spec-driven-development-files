@@ -2,13 +2,15 @@
 
 ## Scope
 
-Install and configure Hono with a `tsx` dev server. Expose a single `/` route that renders a minimal HTML home page via Hono JSX. Confirm TypeScript types work end-to-end.
+Install and configure Hono with a `tsx` dev server. Expose a single page route `/` that renders a minimal HTML home page via Hono JSX. Confirm TypeScript types work end-to-end. Include a shared Layout component that imports separate Header, Main, and Footer components and renders each exactly once, in that order. Home supplies its content directly to Layout without adding a second main region.
+
+Link `/static/style.css` from the document head. That stylesheet imports `/static/base.css` for reset and typography; layout rules live in `style.css`. Serve both files through Hono's static middleware with CSS content types. CSS is loaded by the browser, without a Node.js CSS loader or bundler.
 
 ## Out of Scope
 
-- No shared layout or navigation (Phase 2)
+- No navigation beyond the header's home link; further navigation remains deferred
 - No test framework setup (Vitest deferred to a later phase)
-- No database or additional routes
+- No database or additional page routes; static stylesheet routes are included
 - No CI/CD pipeline
 
 ## Decisions
@@ -30,4 +32,4 @@ This is the first visible page a developer sees when they clone and run the proj
 ## Stakeholder Notes
 
 - **Mary** needs TypeScript end-to-end (satisfied by `strict: true` + successful `tsc --noEmit`)
-- **Steve** has no requirements yet; this phase is plumbing only
+- **Steve** gets basic readable typography and a consistent header/main/footer shell

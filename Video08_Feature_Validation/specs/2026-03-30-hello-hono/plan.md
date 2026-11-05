@@ -27,13 +27,14 @@
 
 12. Create `src/components/Layout.tsx` with a top-level shell (`<html>`, `<head>`, `<body>`); it imports `<Header>`, `<Main>`, and `<Footer>` from their own files
 13. Create `src/components/Header.tsx`, `src/components/Main.tsx`, and `src/components/Footer.tsx` as separate files, one component each
-14. `<head>` links to `/static/style.css`
-15. Create `static/style.css` with minimal base styles
+14. `<head>` links to `/static/style.css`; load CSS through the browser stylesheet link rather than importing CSS into the Node.js entry point
+15. Create `static/base.css` for reset and typography; import it from `static/style.css` with `@import url("./base.css")` and keep header/main/footer layout rules in `style.css`
 16. Serve the `static/` directory via `@hono/node-server/serve-static` in `src/index.tsx`
-17. Update `src/pages/Home.tsx` to use `<Layout>` and place page content inside `<Main>`
+17. Update `src/pages/Home.tsx` to pass page content directly to `<Layout>`; Layout owns `<Header>`, `<Main>`, and `<Footer>` so each page has exactly one main region
 
 ## Group 6 — Verify
 
 18. Run `npm run typecheck` — must exit 0 with no errors
 19. Run `npm run dev` and confirm `curl localhost:3000` returns HTML containing the heading
-20. Confirm `curl localhost:3000/static/style.css` returns the CSS file
+20. Confirm `/static/style.css` and its imported `/static/base.css` both return HTTP 200 with a CSS content type
+21. Inspect the HTML for exactly one header, main, and footer in that order; confirm the heading and tagline are inside main and the stylesheet link points to `/static/style.css`

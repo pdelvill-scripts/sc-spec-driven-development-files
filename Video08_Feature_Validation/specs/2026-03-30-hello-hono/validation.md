@@ -39,8 +39,22 @@ HTTP status must be `200 OK`. Response body must be HTML and must contain:
 
 `tsconfig.json` must contain `"strict": true`.
 
+### 6. Shared layout and CSS load
+
+Inspect the returned HTML: exactly one header, main, and footer must appear in that order. The heading and tagline belong inside main. Confirm the head links `/static/style.css`.
+
+Fetch `/static/style.css` and `/static/base.css`; both must return HTTP 200 with a `text/css` content type. Confirm `style.css` imports `./base.css`, and contains the header/main/footer rules. Confirm `base.css` contains the reset and typography styles.
+
 ## Not Required
 
 - No automated tests needed for this phase
 - No CI pipeline required
 - Browser rendering not checked (curl is sufficient)
+
+## Layout verification — 2026-11-05
+
+- `npm run typecheck`: passed.
+- `npm run dev`: started successfully on port 3000; stopped after verification.
+- `GET /`: HTTP 200 with HTML containing one header, one main, and one footer, in that order. The heading and tagline are inside main and the head links `/static/style.css`.
+- `GET /static/style.css` and `GET /static/base.css`: HTTP 200 with `text/css; charset=utf-8`. The linked stylesheet imports the base stylesheet and contains the layout rules.
+- `git diff --check`: passed. No dependency versions were changed. Installation reported three existing dependency vulnerabilities (one low, one moderate, one high).

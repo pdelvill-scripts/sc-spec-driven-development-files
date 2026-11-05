@@ -1,5 +1,5 @@
-import {FC, PropsWithChildren} from "hono/jsx";
+import type { FC, PropsWithChildren } from "hono/jsx";
 
-export const Main: FC<PropsWithChildren> = ({children}) => (
-    <main>{children}</main>
+export const Main: FC<PropsWithChildren> = ({ children }) => (
+  <main>{children}</main>
 );
