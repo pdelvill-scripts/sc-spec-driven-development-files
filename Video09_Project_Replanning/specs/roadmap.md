@@ -2,11 +2,13 @@
 
 Phases are intentionally small — each one is a shippable slice of work, independently reviewable and testable.
 
+Validation baseline: each feature includes focused Vitest behavior tests. Before merge, run `npm test`, `npm run typecheck`, and `npm run build`; all must pass with tests discovered. Manual startup and relevant visual checks complement the automated suite.
+
 ---
 
 ## Phase 1 — Hello Hono ✅
 - Install and configure Hono with `tsx` dev server
-- Single `/` route returning "AgentClinic is open for business"
+- Single `/` page route rendering the AgentClinic home page
 - Confirm TypeScript types work end-to-end
 
 ## Phase 2 — Base Layout
