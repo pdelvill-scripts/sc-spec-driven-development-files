@@ -42,6 +42,8 @@ AgentClinic is a server-side TypeScript application. All rendering happens on th
 
 All CSS is mobile-first: base styles target small screens and `min-width` media queries progressively enhance for larger viewports. CSS custom properties hold spacing, color, and sizing tokens so values stay consistent across breakpoints. No CSS framework or build step — the browser receives a single flat stylesheet.
 
+AgentClinic's brand colors are orange and black. Define them as shared CSS custom properties, use them consistently in the site shell, and maintain readable text and visible keyboard focus. Neutral backgrounds and text colors may support the brand palette.
+
 ## What We Are Not Using
 
 - No React, Vue, or Svelte — server-side rendering keeps the stack simple

@@ -3,7 +3,9 @@ import {Header} from "./Header";
 import {Footer} from "./Footer";
 import {Main} from "./Main";
 
-export const Layout: FC<PropsWithChildren> = ({ children }) => (
+type LayoutProps = PropsWithChildren;
+
+export const Layout: FC<LayoutProps> = ({ children }) => (
   <html lang="en">
     <head>
       <meta charset="UTF-8" />

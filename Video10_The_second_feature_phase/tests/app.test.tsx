@@ -24,6 +24,12 @@ describe("GET /", () => {
     expect(html).toContain("<p>Where AI agents come to get better.</p>");
   });
 
+  it("renders the home content in exactly one main landmark", async () => {
+    const html = await (await app.request("/")).text();
+    expect(html.match(/<main(?:\s[^>]*)?>/g)).toHaveLength(1);
+    expect(html).toMatch(/<main[^>]*>\s*<h1>AgentClinic<\/h1>/);
+  });
+
   it("links the CSS stylesheet", async () => {
     const res = await app.request("/");
     const html = await res.text();

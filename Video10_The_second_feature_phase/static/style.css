@@ -5,9 +5,11 @@
   --space-lg: 1.5rem;
   --space-xl: 2rem;
   --max-width: 60rem;
-  --color-text: #1a1a1a;
-  --color-subtle: #666;
-  --color-border: #e5e5e5;
+  --color-brand-orange: #ff9b32;
+  --color-brand-black: #111;
+  --color-text: var(--color-brand-black);
+  --color-surface: #fff;
+  --color-on-dark: #fff;
   --font-size-sm: 0.875rem;
 }
 
@@ -20,19 +22,29 @@ body {
   font-family: system-ui, sans-serif;
   line-height: 1.5;
   color: var(--color-text);
-  background: #fff;
+  background: var(--color-surface);
 }
 
 /* Mobile-first: compact padding on small screens */
 header {
   padding: var(--space-sm) var(--space-md);
-  border-bottom: 1px solid var(--color-border);
+  background: var(--color-brand-black);
+  color: var(--color-brand-orange);
+  border-bottom: 3px solid var(--color-brand-orange);
 }
 
 header a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-weight: 600;
   text-decoration: none;
   color: inherit;
+}
+
+header a:focus-visible {
+  outline: 3px solid var(--color-brand-orange);
+  outline-offset: 3px;
 }
 
 main {
@@ -44,9 +56,10 @@ main {
 
 footer {
   padding: var(--space-sm) var(--space-md);
-  border-top: 1px solid var(--color-border);
+  background: var(--color-brand-black);
+  border-top: 3px solid var(--color-brand-orange);
   font-size: var(--font-size-sm);
-  color: var(--color-subtle);
+  color: var(--color-on-dark);
 }
 
 /* Tablet and up */
